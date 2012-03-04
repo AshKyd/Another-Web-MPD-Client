@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{title}} MPD</title>
+		<link rel="stylesheet/less" type="text/css" href="lib/CSS-Widgets/widgets.less">
+		<script type="text/javascript" src="lib/CSS-Widgets/less-1.2.2.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>{{title}}</h1>
+			<ul class="toolbar toolbar-large state-{{mpd.state}}">
+				<li class="play"><a  href="do.php?do=PlayControl&control=playpause">Play/Pause</a></li>
+				<li class="previous"><a  href="do.php?do=PlayControl&control=previous">Previous</a></li>
+				<li class="next"><a  href="do.php?do=PlayControl&control=next">Next</a></li>
+				
+				{{#toolbarElements}}<li class="{{class}}"><a href="{{url}}">{{label}}</a></li>{{/toolbarElements}}
+			</ul>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="do.php?do=GetStatus">Playlist</a></li>
+				<li><a href="do.php?do=GetArtists">Artists</a></li>
+				{{#breadcrumb}}
+					<li><a href="{{url}}">{{label}}</a></li>
+				{{/breadcrumb}}
+				<li>{{title}}</li>
+			</ul>
+		</nav>
+		{{#message}}
+			<div class="message {{class}}">{{message}}</div>
+		{{/message}}
+		{{{content}}}
+		<footer><p>This is the footer. :D</p></footer>
+	</body>
+</html>
